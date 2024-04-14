@@ -57,7 +57,6 @@ updateScore = () => {
 }
 
 createEat = () => {
-  const eatContainer = document.getElementById("eat-container");
   if (!eatContainer) {
     console.error("eat-container elementi bulunamadı.");
     return;
@@ -72,10 +71,12 @@ createEat = () => {
   }
 }
 // Oyunu başlat
+
 createEat();
+
 // Yemi yedikten sonra skoru güncelle ve yerel depolama alanında sakla
  checkEat = () => {
-  if (snakeX === parseInt(eatContainer.style.left) / 10 && snakeY === parseInt(eatContainer.style.top) / 10) {
+  if (snakeX === parseInt(eatContainer.style.left) / 10 && snakeY === parseInt(eatContainer.style.top) / 10) {     /// YASİNE SOR !!!
     updateScore();
   }
 }
@@ -83,18 +84,13 @@ moveSnake = () => {
   snakeX += routex;
   snakeY += routey;
 
-  if (snakeX < 0 || snakeX >= 50 || snakeY < 0 || snakeY >= 50 || checkCollisionWithTail()) {
+  if (snakeX < 0 || snakeX >= 50 || snakeY < 0 || snakeY >= 50 || checkCollisionWithTail()) {         /// YASİNE SORR !!!
     endGame();
     return;
   }
   snakeContainer.style.left = `${snakeX * 10}px`; // BURDA bunu tekrar niye verdik sor !!!
   snakeContainer.style.top = `${snakeY * 10}px`;
-  const eatContainer = document.getElementById("eat-container");
 
-  if (!eatContainer) {
-    console.error("eat-container elementi bulunamadı.");
-    return;
-  }
   if (snakeX === parseInt(eatContainer.style.left) / 10 && snakeY === parseInt(eatContainer.style.top) / 10) {
     score++;
     scoreDisplay.innerText = "Score : " + score;
