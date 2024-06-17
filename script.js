@@ -76,7 +76,7 @@ createEat();
 
 // Yemi yedikten sonra skoru güncelle ve yerel depolama alanında sakla
  checkEat = () => {
-  if (snakeX === parseInt(eatContainer.style.left) / 10 && snakeY === parseInt(eatContainer.style.top) / 10) {     /// YASİNE SOR !!!
+  if (snakeX === parseInt(eatContainer.style.left) / 10 && snakeY === parseInt(eatContainer.style.top) / 10) {    
     updateScore();
   }
 }
@@ -84,11 +84,11 @@ moveSnake = () => {
   snakeX += routex;
   snakeY += routey;
 
-  if (snakeX < 0 || snakeX >= 50 || snakeY < 0 || snakeY >= 50 || checkCollisionWithTail()) {         /// YASİNE SORR !!!
+  if (snakeX < 0 || snakeX >= 50 || snakeY < 0 || snakeY >= 50 || checkCollisionWithTail()) {         
     endGame();
     return;
   }
-  snakeContainer.style.left = `${snakeX * 10}px`; // BURDA bunu tekrar niye verdik sor !!!
+  snakeContainer.style.left = `${snakeX * 10}px`;
   snakeContainer.style.top = `${snakeY * 10}px`;
 
   if (snakeX === parseInt(eatContainer.style.left) / 10 && snakeY === parseInt(eatContainer.style.top) / 10) {
@@ -126,7 +126,7 @@ function moveSnakeParts () {
     snakeParts[i].x = snakeParts[i - 1].x;
     snakeParts[i].y = snakeParts[i - 1].y;
     snakeParts[i].element.style.left = `${snakeParts[i].x * 10}px`;
-    snakeParts[i].element.style.top = `${snakeParts[i].y * 10}px`; // yasine sor !!!!
+    snakeParts[i].element.style.top = `${snakeParts[i].y * 10}px`; 
   }
   if (snakeParts.length > 0) {
     snakeParts[0].x = snakeX;
@@ -152,7 +152,7 @@ function growSnake() {
   newPart.className = "snake-part";
   newPart.style.width = "10px";
   newPart.style.height = "10px";
-  newPart.style.backgroundColor = "green"; // yasine sor !!
+  newPart.style.backgroundColor = "green"; 
   newPart.style.position = "absolute";
   newPart.style.left = `${snakeX * 10}px`;
   newPart.style.top = `${snakeY * 10}px`;
